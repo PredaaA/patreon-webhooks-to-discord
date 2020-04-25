@@ -39,10 +39,10 @@ def get_type_event(request: Request):
 
 @app.post("/webhook")
 async def patreon(request: Request, payload: PatreonPayload = None):
-    if request.headers.get("x-patreon-signature") != config["patreon_secret"]:
-        return JSONResponse(
-            content=dict(success=False, message="Wrong Patreon signature."), status_code=403
-        )
+    # if request.headers.get("x-patreon-signature") != config["patreon_secret"]:
+    #     return JSONResponse(
+    #         content=dict(success=False, message="Wrong Patreon signature."), status_code=403
+    #     )
     if not payload:
         return JSONResponse(
             content=dict(success=False, message="Payload data missed."), status_code=400
